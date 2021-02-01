@@ -1,0 +1,6 @@
+---
+- hosts: all
+  connection: local
+  tasks:
+    - name: Get details if installed packages
+      apk: info
