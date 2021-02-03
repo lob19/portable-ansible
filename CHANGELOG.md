@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- removed py2.x support
+- new approach for building project
+- ansible-base, 2.10.5
+
 ## 0.4.2
 
 - updated python versions
