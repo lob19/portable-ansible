@@ -1,6 +1,10 @@
 ---
-- hosts: all
+- hosts: localhost
   connection: local
   tasks:
     - name: Get details if installed packages
-      apk: info
+      command: apk info
+
+    - name: Get process list
+      command: ps -a
+
