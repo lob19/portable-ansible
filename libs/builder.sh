@@ -73,7 +73,7 @@ function _dependencies() {
 function _run() {
 
     info "Installing Ansible packages" && \
-         pip3 install --no-deps \
+        pip3 install --no-deps \
              --no-compile --requirement conf/requirements \
              --target /workspace/target/ansible/
 }

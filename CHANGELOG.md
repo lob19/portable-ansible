@@ -4,7 +4,7 @@
 
 - removed py2.x support
 - new approach for building project
-- ansible-base, 2.10.5
+- ansible-base, 2.10.5. The list of all packages described in [the requirements file](conf/requirements)
 
 ## 0.4.2
 
