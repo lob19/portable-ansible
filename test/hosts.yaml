@@ -1,4 +1,9 @@
 all:
+  vars:
+
+    ansible_python_interpreter: auto_silent
+    ansible_ssh_common_args: -o StrictHostKeyChecking=no
+
   hosts:
     
     localhost:
@@ -7,11 +12,7 @@ all:
     ansible-server-v1:
       ansible_host: ansible-server
       remote_user: ansible
-      ansible_python_interpreter: auto_silent
-      ansible_ssh_common_args: -o StrictHostKeyChecking=no
 
     ansible-server-v2:
       ansible_host: ansible-server
       ansible_ssh_private_key_file: "/workspace/etc/ssh-keys/ansible.id_rsa"
-      ansible_python_interpreter: auto_silent
-      ansible_ssh_common_args: -o StrictHostKeyChecking=no
