@@ -12,6 +12,9 @@ function help() {
     echo "      start:      start the container"
     echo "      stop:       stop the contiainer"
     echo "      console:    open console in the container"
+    echo "      list:       list active docker containers"
+    echo "      exec:       run command in container"
+    echo "      ip:         get IP address"
     echo "  container name: container name"
     echo
 }
@@ -35,7 +38,11 @@ function start() {
             alpine:latest tail -f /dev/null
     info "Installing packages" && \
         docker container exec -ti ${CONTAINER_NAME} apk add --no-cache bash python3 ncurses
-    # -u $(id -u ${USER}):$(id -g ${USER}) \
+    info "Updating hosts file" && \
+        IP_ADDRESS=$(ip ${CONTAINER_NAME}) && \
+        sed -i "s/*${CONTAINER_NAME}/${IP_ADDRESS}  ${CONTAINER_NAME}/" etc/hosts && \
+        docker container exec -ti ${CONTAINER_NAME} \
+            /bin/bash -c 'cat /workspace/etc/hosts >> /etc/hosts'
 }
 
 function stop() {
@@ -72,6 +79,12 @@ function console() {
 
     CONTAINER_NAME=${1:-}
     docker container exec -ti ${CONTAINER_NAME} /bin/bash
+}
+
+function ip() {
+
+    CONTAINER_NAME=${1:-}
+    docker inspect -f "{{ .NetworkSettings.IPAddress }}" ${CONTAINER_NAME}
 }
 
 $@

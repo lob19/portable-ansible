@@ -33,7 +33,7 @@ function _setup() {
     info "Preparing SSH keys" && \
         mkdir -p /run/sshd /root/.ssh && \
         chmod 0700 /root/.ssh && \
-        cat /workspace/test/resources/ssh-keys/ansible.id_rsa.pub > /root/.ssh/authorized_keys && \
+        cat /workspace/etc/ssh-keys/ansible.id_rsa.pub > /root/.ssh/authorized_keys && \
         chmod 600 /root/.ssh/authorized_keys
 
     info "Generate host keys if not present" && \
@@ -59,6 +59,12 @@ function start() {
 function stop() {
 
     ./libs/container.sh stop ${CONTAINER_NAME}
+}
+
+function restart() {
+
+    stop
+    start
 }
 
 function console() {
