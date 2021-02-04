@@ -2,6 +2,7 @@
 
 # service directories
 bin/
+opt/
 ansible/
 tmp/
 .local-ci/
