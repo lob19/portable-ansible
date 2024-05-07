@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1
+
+- Moved to ansible 2.16 -> ansible-base package switched to ansible-core
+- Keep dists-info and egg-info, otherwise ansible won't work (cannot execute metadata.version)
+- This release is compatible with python 3.12 (shipped with Ubuntu 24.04)
+
 ## 0.5.0
 
 - removed py2.x support

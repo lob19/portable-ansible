@@ -81,8 +81,6 @@ function _run() {
 function _post_clean() {
 
     info 'Removing extra dirs and files' && \
-         rm -rf /workspace/target/ansible/*.dist-info && \
-         rm -rf /workspace/target/ansible/*.egg-info && \
          rm -rf /workspace/target/ansible/*.gz && \
          rm -rf /workspace/target/ansible/*.whl && \
          # rm -rf /workspace/target/ansible/bin/ && \

@@ -35,7 +35,7 @@ function start() {
         docker run -d --name ${CONTAINER_NAME} \
             --volume "$(pwd)":/workspace \
             --workdir /workspace \
-            alpine:latest tail -f /dev/null
+            alpine:edge tail -f /dev/null
     info "Installing packages" && \
         docker container exec -ti ${CONTAINER_NAME} apk add --no-cache bash python3 ncurses
     info "Updating hosts file" && \

@@ -6,7 +6,7 @@ The distribution contains only `ansible-base`. The extra dependencies will need 
 
 ## Changelog
 
-All notable changes to this project are documented in the file CHANGELOG.md
+This fork is an updated version of the upstream, works with latest python (3.12) and ansible (2.16)
 
 ## How to install and use
 

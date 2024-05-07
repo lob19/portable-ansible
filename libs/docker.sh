@@ -16,7 +16,7 @@ function container_start() {
         docker run -d --name ${CONTAINER_NAME} \
             --volume "$(pwd)":/workspace \
             --workdir /workspace \
-            alpine:latest tail -f /dev/null
+            alpine:edge tail -f /dev/null
     info "Installing bash" && \
         container_exec ${CONTAINER_NAME} apk add bash python3
     # -u $(id -u ${USER}):$(id -g ${USER}) \
